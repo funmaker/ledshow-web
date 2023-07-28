@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOMServer from 'react-dom/server';
-import { StaticRouter } from "react-router-dom/server";
 import expressCore from "express-serve-static-core";
 import App from "../../client/App";
 import { InitialData } from "../../types/api";
@@ -25,18 +24,13 @@ export default function reactMiddleware(req: expressCore.RequestEx<any, any, any
         (async () => {
           const initialData: InitialData & Data = {
             ...data,
-            _csrf: req.csrfToken ? req.csrfToken() : undefined as any,
             _config: {},
           };
           
           const initialDataJSON = JSON.stringify(initialData).replace(removeTags, tag => tagsToReplace[tag] || tag);
           
           res.send(index({
-            reactContent: ReactDOMServer.renderToString(
-              <StaticRouter location={req.originalUrl}>
-                <App initialData={initialData} />
-              </StaticRouter>,
-            ),
+            reactContent: ReactDOMServer.renderToString(<App />),
             initialData: initialDataJSON,
             production: process.env.NODE_ENV === 'production',
           }));

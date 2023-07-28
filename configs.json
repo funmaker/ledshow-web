@@ -2,12 +2,5 @@
 	"port": 3939,
 	"session": {
 		"secret": "=== Change This ==="
-	},
-	"db": {
-		"user": "boilerplate",
-		"host": "localhost",
-		"database": "boilerplate",
-		"password": "boilerplate",
-		"port": 5432
 	}
 }

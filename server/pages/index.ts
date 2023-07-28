@@ -8,7 +8,7 @@ export const router = PromiseRouter();
 
 router.get<never, IndexPageResponse>('/', async (req, res) => {
   const initialData = {
-    kek: `Welcome to Boilerplate 2.0 on ${os.hostname()}!`,
+    kek: `Welcome to LedShow Web on ${os.hostname()}!`,
   };
   
   res.react(initialData);

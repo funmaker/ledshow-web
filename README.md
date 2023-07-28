@@ -1,4 +1,4 @@
-# Webapp Boilerplate
+# LedShow Web
 
 Basic boilerplate for isomorphic React web apps. Including:
 - Node.js

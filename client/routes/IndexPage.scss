@@ -1,0 +1,166 @@
+
+.IndexPage {
+  display: flex;
+  background: #202023;
+  color: white;
+  font-family: sans-serif;
+  height: 100%;
+  user-select: none;
+  
+  .sideBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1em;
+    gap: 1em;
+    border-right: 1px solid #3e4556;
+    background-color: #060b11;
+    z-index: 999;
+  }
+  
+  button {
+    width: 4em;
+    height: 4em;
+    border: 1px solid #3e4556;
+    background: #0f1d31;
+    transition: background-color 0.15s;
+    color: white;
+    border-radius: 0.5em;
+    cursor: pointer;
+    outline: none;
+    font-weight: bold;
+    position: relative;
+    
+    &:hover, &:focus {
+      background: #142642;
+    }
+    
+    &:active {
+      background: #19355d;
+    }
+    
+    &.active {
+      color: lime;
+      
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 0.5em;
+        left: 0.5em;
+        right: 0.5em;
+        border-bottom: 1px solid lime;
+      }
+    }
+  }
+  
+  .divider {
+    border-bottom: 1px solid #3e4556;
+    width: 100%;
+  }
+  
+  .content {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    
+    .main {
+      flex: 1;
+      display: flex;
+      
+      .gallery, .preview, .options {
+        flex: 1;
+        padding: 1em;
+      }
+      
+      .preview {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-left: 1px solid #3e4556;
+        border-right: 1px solid #3e4556;
+        width: 0;
+        height: 0;
+        min-height: 100%;
+        
+        canvas {
+          background: black;
+          flex-shrink: 1;
+          max-width: 100%;
+          max-height: 100%;
+        }
+      }
+    }
+    
+    .controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1em;
+      padding: 1em;
+      
+      background-color: #060b11;
+      border-top: 1px solid #3e4556;
+    }
+    
+    .timeline {
+      overflow-x: auto;
+      width: 100%;
+      
+      .timelineWrap {
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        
+        .music {
+          height: 4em;
+          background: url("/static/music.webp") repeat-x 0 0 / auto 100%;
+          border-top: 1px solid #3e4556;
+          position: sticky;
+          left: 0;
+        }
+        
+        .visuals {
+          display: flex;
+          border-top: 1px solid #3e4556;
+          
+          .stage {
+            flex-shrink: 0;
+            height: 6em;
+            width: 12em;
+            padding: 0.5em;
+            border-right: 1px solid #3e4556;
+          }
+        }
+        
+        .ruler {
+          display: flex;
+          border-top: 1px solid #3e4556;
+          height: 3.5em;
+          background-image:
+                  linear-gradient(to right, #3b424f 1px, transparent 1px),
+                  linear-gradient(to right, #3b424f 1px, transparent 1px),
+                  linear-gradient(to right, #32353f 1px, transparent 1px);
+          background-repeat: repeat-x;
+          background-size:
+                  8em 1.5em,
+                  4em 1.0em,
+                  0.8em 0.75em;
+          
+          span {
+            display: inline-block;
+            flex-shrink: 0;
+            width: 8em;
+            position: relative;
+            padding: 1em 0 0 0.3em;
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
+}
